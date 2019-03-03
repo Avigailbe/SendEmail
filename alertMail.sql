@@ -32,14 +32,14 @@ alter procedure raiseMyError (@number int)
 as
 Begin 
 
-if @number <10 or @number >20 --throw 50001,'',1;
-	begin
-		exec msdb.dbo.sp_send_dbmail 
-		@profile_name=Avigail, 
-		@recipients='bentovim.avigail@gmail.com',
-		@subject='TCDBA24 - homework on alert e-mail - Avigail Ben Tovim',
-		@query='select *  from sys.messages where message_id = 50001'
-	end
+if @number <10 or @number >20 throw 50001,'',1;
+	--begin
+	--	exec msdb.dbo.sp_send_dbmail 
+	--	@profile_name=Avigail, 
+	--	@recipients='bentovim.avigail@gmail.com',
+	--	@subject='TCDBA24 - homework on alert e-mail - Avigail Ben Tovim',
+	--	@query='select *  from sys.messages where message_id = 50001'
+	--end
 insert into holidays values (@number);
 end 
 
